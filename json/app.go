@@ -34,5 +34,5 @@ func main() {
 	// for i:=0; i<10; i++ {
 	// 	fmt.Println(persons[i].Birthday,getAge(persons[i].Birthday))
 	// }
-	fmt.Println(AverageAgePerCity(persons))
+	fmt.Println(TopJobsByNumerInEachCity(persons))
 }
