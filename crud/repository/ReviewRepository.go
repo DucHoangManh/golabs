@@ -3,11 +3,6 @@ package repository
 import (
 	"github.com/DucHoangManh/golabs/crud/model"
 )
-type Observerable interface {
-	Subscribe(ob Observerable)
-	UnSubscribe(ob Observerable)
-	Notify(interface{})
-}
 type Observer interface {
 	Update(interface{})
 }
@@ -18,9 +13,6 @@ type ReviewRepo struct {
 }
 func (reviewRepo *ReviewRepo) Subscribe(ob Observer){
 	reviewRepo.Observers = append(reviewRepo.Observers,ob)
-}
-func (reviewRepo *ReviewRepo) Snsubscribe(ob Observerable){
-	//
 }
 func (reviewRepo *ReviewRepo) Notify(review *model.Review){
 	for _, ob := range reviewRepo.Observers{
