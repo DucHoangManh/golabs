@@ -20,4 +20,5 @@ func ConfigBookRouter(router *fiber.Router) {
 func ConfigReviewRouter(route *fiber.Router){
 	(*route).Get("/", controller.GetAllReviews)
 	(*route).Post("/", controller.CreateReview)
+	(*route).Delete("/:id", controller.DeleteReview)
 }
