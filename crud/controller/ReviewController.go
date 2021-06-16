@@ -32,3 +32,15 @@ func CreateReview(c *fiber.Ctx) error {
 		"reivew_id": reviewId,
 	})
 }
+func DeleteReview(c *fiber.Ctx) error {
+	id, err := c.ParamsInt("id")
+	if err != nil {
+		return c.Status(400).SendString(err.Error())
+	}
+	err = repo.Reviews.DeleteReviewById(int64(id))
+	if err != nil {
+		return c.Status(404).SendString(err.Error())
+	} else {
+		return c.SendString("delete successfully")
+	}
+}

@@ -48,7 +48,7 @@ func (r *BookRepo) InitData(connection string) {
 			{FullName: "Tô Hoài", Country: "Vietnam"},
 			{FullName: "Hames", Country: "Turkey"},
 		},
-		Rating: 4.5})
+		Rating: 0})
 
 	r.CreateNewBook(&model.Book{
 		Title: "100 năm cô đơn",
@@ -56,7 +56,7 @@ func (r *BookRepo) InitData(connection string) {
 			{FullName: "Gabriel Garcia Marquez", Country: "Columbia"},
 			{FullName: "Ivan", Country: "Russia"},
 		},
-		Rating: 4.5})
+		Rating: 0})
 }
 
 func (r *BookRepo) GetAllBooks() map[int64]*model.Book {

@@ -1,6 +1,8 @@
 package repository
 
 import (
+	"errors"
+
 	"github.com/DucHoangManh/golabs/crud/model"
 )
 type Observer interface {
@@ -39,4 +41,13 @@ func (reviewRepo *ReviewRepo) CreateNewReview(review *model.Review) int64 {
 }
 func (reviewRepo *ReviewRepo) GetAllReviews() map[int64]*model.Review{
 	return reviewRepo.reviews
+}
+func (reviewRepo *ReviewRepo) DeleteReviewById(Id int64) error {
+	if review, ok := reviewRepo.reviews[Id]; ok {
+		delete(reviewRepo.reviews, Id)
+		reviewRepo.Notify(review)
+		return nil
+	} else {
+		return errors.New("review not found")
+	}
 }

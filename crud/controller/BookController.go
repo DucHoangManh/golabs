@@ -18,7 +18,12 @@ func (bookController *BookController) Update(reviewI interface{}){
 			reviewCount++
 		}
 	}
-	avgRating := float32(sum) / float32(reviewCount)
+	var avgRating float32
+	if len(repo.Reviews.GetAllReviews()) == 0{
+		avgRating = 0
+	}else{
+		avgRating = float32(sum) / float32(reviewCount)
+	}
 	repo.Books.SetBookRating(review.BookId,avgRating)
 }
 func init() {
