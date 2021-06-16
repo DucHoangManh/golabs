@@ -48,6 +48,6 @@ func (reviewRepo *ReviewRepo) DeleteReviewById(Id int64) error {
 		reviewRepo.Notify(review)
 		return nil
 	} else {
-		return errors.New("book not found")
+		return errors.New("review not found")
 	}
 }
