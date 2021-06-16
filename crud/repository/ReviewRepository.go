@@ -51,3 +51,11 @@ func (reviewRepo *ReviewRepo) DeleteReviewById(Id int64) error {
 		return errors.New("review not found")
 	}
 }
+func (reviewRepo *ReviewRepo) DeleteReviewByBookId(Id int64) error {
+	for _, review := range reviewRepo.reviews {
+		if review.BookId == Id {
+			delete(reviewRepo.reviews, Id)
+		}
+	}
+	return nil
+}

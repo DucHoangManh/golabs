@@ -55,6 +55,7 @@ func DeleteBookById(c *fiber.Ctx) error {
 	if err != nil {
 		return c.Status(404).SendString(err.Error())
 	} else {
+		repo.Reviews.DeleteReviewByBookId(int64(id))
 		return c.SendString("delete successfully")
 	}
 }
